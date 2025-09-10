@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CATEGORIES } from '../constants';
 
@@ -15,9 +14,9 @@ export const CategoryBrowser: React.FC<CategoryBrowserProps> = ({ onCategorySele
           <button
             key={category.name}
             onClick={() => onCategorySelect(category.name)}
-            className="group bg-slate-800 p-6 rounded-lg flex flex-col items-center justify-center text-center gap-4 border-2 border-slate-700 hover:border-amber-400 hover:bg-slate-700 transition-all duration-300 transform hover:-translate-y-1"
+            className="group bg-slate-800/50 p-6 rounded-xl flex flex-col items-center justify-center text-center gap-4 border border-slate-700 hover:border-amber-400/50 hover:bg-slate-800/80 transition-all duration-300 transform hover:-translate-y-1"
           >
-            <div className="text-amber-400 group-hover:text-amber-300 transition-colors">
+            <div className="text-amber-400 group-hover:text-amber-300 transition-colors duration-300 group-hover:scale-110 transform">
               {category.icon}
             </div>
             <span className="font-semibold text-slate-200">{category.name}</span>

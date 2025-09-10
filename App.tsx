@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -51,7 +50,7 @@ const App: React.FC = () => {
   const quoteOfTheDay = quotes.length > 0 ? quotes[0] : null;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200">
+    <div className="min-h-screen text-slate-200">
       <Header />
       <main className="container mx-auto px-4 py-8 md:py-12">
         
@@ -60,7 +59,7 @@ const App: React.FC = () => {
         {error && <div className="text-center py-10 text-red-400">{error}</div>}
         
         {quoteOfTheDay && (
-          <section className="mb-16 text-center animate-fade-in">
+          <section className="mb-16 text-center animate-fadeInUp">
             <h2 className="text-2xl font-light text-amber-400 mb-4">Quote of the Day</h2>
             <div className="max-w-4xl mx-auto">
               <QuoteCard quote={quoteOfTheDay.quote} author={quoteOfTheDay.author} isFeatured={true} />
@@ -69,12 +68,12 @@ const App: React.FC = () => {
         )}
 
         {/* AI Quote Generator Section */}
-        <section className="mb-16 animate-fade-in" style={{ animationDelay: '200ms' }}>
+        <section className="mb-16 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
           <QuoteGenerator />
         </section>
 
         {/* Categories Section */}
-        <section className="mb-16 animate-fade-in" style={{ animationDelay: '400ms' }}>
+        <section className="mb-16 animate-fadeInUp" style={{ animationDelay: '400ms' }}>
           <CategoryBrowser onCategorySelect={async (category) => {
               setIsLoading(true);
               try {
@@ -89,7 +88,7 @@ const App: React.FC = () => {
         </section>
 
         {/* More Quotes Section */}
-        <section className="animate-fade-in" style={{ animationDelay: '600ms' }}>
+        <section className="animate-fadeInUp" style={{ animationDelay: '600ms' }}>
           <h2 className="text-3xl font-bold text-center mb-8">Explore More Quotes</h2>
           {isLoading && quotes.length === 0 ? (
             <div className="text-center py-10"><Loader /></div>

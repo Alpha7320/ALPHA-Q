@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { generateQuote } from '../services/geminiService';
 import type { Quote } from '../types';
@@ -32,7 +31,7 @@ export const QuoteGenerator: React.FC = () => {
   };
 
   return (
-    <div className="bg-slate-800/70 p-8 rounded-lg shadow-xl border border-slate-700">
+    <div className="bg-slate-900/50 backdrop-blur-lg p-8 rounded-2xl border border-slate-700/50 shadow-2xl">
       <h2 className="text-3xl font-bold text-center mb-2">AI Quote Generator</h2>
       <p className="text-center text-slate-400 mb-6">Enter a topic, mood, or name to generate a unique quote.</p>
       
@@ -42,13 +41,13 @@ export const QuoteGenerator: React.FC = () => {
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="e.g., 'The Future', 'Inner Peace', 'Elon Musk'"
-          className="w-full px-4 py-3 bg-slate-900 border border-slate-600 rounded-md focus:ring-2 focus:ring-amber-400 focus:border-amber-400 focus:outline-none transition-shadow"
+          className="w-full px-4 py-3 bg-slate-800 border-2 border-slate-700 rounded-md focus:ring-2 focus:ring-amber-500 focus:border-amber-500 focus:outline-none transition-all duration-300 shadow-inner"
           disabled={isLoading}
         />
         <button
           type="submit"
           disabled={isLoading}
-          className="bg-amber-500 text-slate-900 font-bold px-6 py-3 rounded-md hover:bg-amber-400 transition-colors disabled:bg-slate-600 disabled:cursor-not-allowed flex items-center justify-center"
+          className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold px-6 py-3 rounded-md hover:shadow-lg hover:shadow-amber-500/40 transform hover:-translate-y-0.5 transition-all duration-300 disabled:from-slate-600 disabled:to-slate-700 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none flex items-center justify-center"
         >
           {isLoading ? <Loader /> : 'Generate'}
         </button>
@@ -64,7 +63,7 @@ export const QuoteGenerator: React.FC = () => {
           </div>
         )}
         {generatedQuote && (
-           <div className="w-full max-w-2xl mx-auto animate-fade-in">
+           <div className="w-full max-w-2xl mx-auto animate-fadeInUp">
              <QuoteCard quote={generatedQuote.quote} author={generatedQuote.author} />
            </div>
         )}
